@@ -1,15 +1,18 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet } from 'react-native';
+import { NavigationContainer, DarkTheme } from '@react-navigation/native';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+import Main from './src/Main';
+
+const App = () => (
+  <NavigationContainer theme={DarkTheme}>
+    <Main/>
+    <StatusBar style="auto"/>
+  </NavigationContainer>
+);
+
+export default App;
 
 const styles = StyleSheet.create({
   container: {
