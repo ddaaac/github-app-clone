@@ -2,10 +2,11 @@ import React from 'react';
 import { StyleSheet, Text, TouchableHighlight, View } from 'react-native';
 
 import Icons from '../util/Icons';
+import COLOR from '../util/Color';
 
 const TouchableButton = ({ icon, children, drawBottomBorder = true }) => (
   <TouchableHighlight
-    underlayColor='rgb(58,58,60)'
+    underlayColor={COLOR.darkGray4}
     onPress={() => {}}
   >
     <View style={styles.button}>

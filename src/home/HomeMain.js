@@ -5,6 +5,7 @@ import RefreshingIndicator from '../util/RefreshingIndicator';
 import MyWork from './MyWork';
 import MyFavorites from './MyFavorites';
 import Message from './Message';
+import COLOR from '../util/Color';
 
 const HomeMain = ({ navigation }) => {
   const pushToNext = () => {
@@ -75,7 +76,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   subTitleEdit: {
-    color: 'rgb(10,132,255)',
+    color: COLOR.darkBlue,
     fontSize: 15,
     fontWeight: '400',
   },
@@ -84,7 +85,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   buttonContainer: {
-    backgroundColor: 'rgb(28, 28, 30)',
+    backgroundColor: COLOR.darkGray6,
     borderRadius: 5,
     overflow: 'hidden',
   },

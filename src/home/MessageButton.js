@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import COLOR from '../util/Color';
 
 const MessageButton = ({ children }) => (
   <TouchableOpacity activeOpacity={0.7}>
@@ -16,12 +17,12 @@ export default MessageButton;
 const styles = StyleSheet.create({
   button: {
     borderRadius: 5,
-    borderColor: 'rgb(72,72,74)',
+    borderColor: COLOR.darkGray3,
     borderWidth: StyleSheet.hairlineWidth,
     height: 44,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'rgb(44,44,46)',
+    backgroundColor: COLOR.darkGray5,
     marginHorizontal: 20,
     marginBottom: 25,
   },

@@ -2,26 +2,28 @@ import React from 'react';
 import { StyleSheet } from 'react-native';
 import { Ionicons, Octicons } from '@expo/vector-icons';
 
+import COLOR from './Color';
+
 const styles = StyleSheet.create({
   issue: {
     lineHeight: 32,
     textAlign: 'center',
-    backgroundColor: 'rgb(48,209,88)',
+    backgroundColor: COLOR.darkGreen,
   },
   gitPullRequest: {
     lineHeight: 32,
     textAlign: 'center',
-    backgroundColor: 'rgb(10,132,255)',
+    backgroundColor: COLOR.darkBlue,
   },
   repository: {
     lineHeight: 32,
     textAlign: 'center',
-    backgroundColor: 'rgb(191,90,241)',
+    backgroundColor: COLOR.darkPurple,
   },
   organization: {
     lineHeight: 32,
     textAlign: 'center',
-    backgroundColor: 'rgb(255,159,10)',
+    backgroundColor: COLOR.darkOrange,
   },
 });
 
