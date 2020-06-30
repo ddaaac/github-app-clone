@@ -12,6 +12,6 @@ export default CreateIssueButton;
 
 const styles = StyleSheet.create({
   imgButton: {
-    marginRight: 20,
+    marginRight: 15,
   },
 });
