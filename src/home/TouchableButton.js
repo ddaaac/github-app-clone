@@ -3,7 +3,7 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 import Icons from '../util/Icons';
 
-const TouchableButton = ({ icon, children }) => (
+const TouchableButton = ({ icon, children, drawBottomBorder = true }) => (
   <TouchableOpacity
     style={styles.button}
     activeOpacity={0.9}
@@ -13,7 +13,7 @@ const TouchableButton = ({ icon, children }) => (
         {icon}
       </View>
     </View>
-    <View style={styles.contentContainer}>
+    <View style={drawBottomBorder ? styles.contentContainer : styles.lastContentContainer}>
       <Text style={styles.content}>
         {children}
       </Text>
@@ -29,7 +29,7 @@ export default TouchableButton;
 const styles = StyleSheet.create({
   button: {
     backgroundColor: 'rgb(28, 28, 30)',
-    height: 60,
+    height: 55,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
@@ -48,8 +48,13 @@ const styles = StyleSheet.create({
   },
   contentContainer: {
     flex: 5,
-    borderBottomWidth: 0.2,
-    borderColor: 'gray',
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderColor: 'rgb(58,58,60)',
+    justifyContent: 'center',
+    alignSelf: 'stretch',
+  },
+  lastContentContainer: {
+    flex: 5,
     justifyContent: 'center',
     alignSelf: 'stretch',
   },

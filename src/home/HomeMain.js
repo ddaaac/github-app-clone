@@ -1,5 +1,11 @@
 import React from 'react';
-import { ScrollView, StyleSheet, Text, TouchableHighlight, View, } from 'react-native';
+import {
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableHighlight, TouchableOpacity,
+  View
+} from 'react-native';
 
 import RefreshingIndicator from '../util/RefreshingIndicator';
 import TouchableButton from './TouchableButton';
@@ -20,6 +26,16 @@ const HomeMain = ({ navigation }) => {
       </Text>
       <Text style={styles.subTitle}>
         My Work
+      </Text>
+      <View style={styles.buttonContainer}>
+        <TouchableButton icon={Icons.issue}>Issues</TouchableButton>
+        <TouchableButton icon={Icons.gitPullRequest}>Pull Requests</TouchableButton>
+        <TouchableButton icon={Icons.repository}>Repositories</TouchableButton>
+        <TouchableButton icon={Icons.organization}
+                         drawBottomBorder={false}>Organizations</TouchableButton>
+      </View>
+      <Text style={styles.subTitle}>
+        Favorites
       </Text>
       <View style={styles.buttonContainer}>
         <TouchableButton icon={Icons.issue}>Issues</TouchableButton>
@@ -48,13 +64,15 @@ const styles = StyleSheet.create({
   title: {
     color: 'white',
     fontWeight: 'bold',
-    fontSize: 40,
+    fontSize: 33,
+    marginBottom: 9,
   },
   subTitle: {
     color: 'white',
-    fontSize: 25,
+    fontSize: 21,
+    fontWeight: '600',
     marginTop: 40,
-    marginBottom: 5,
+    marginBottom: 10,
   },
   buttonContainer: {
     backgroundColor: 'white',
