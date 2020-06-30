@@ -1,15 +1,9 @@
 import React from 'react';
-import {
-  ScrollView,
-  StyleSheet,
-  Text,
-  TouchableHighlight, TouchableOpacity,
-  View
-} from 'react-native';
+import { ScrollView, StyleSheet, Text, TouchableHighlight, View } from 'react-native';
 
 import RefreshingIndicator from '../util/RefreshingIndicator';
-import TouchableButton from './TouchableButton';
-import Icons from '../util/Icons';
+import MyWork from './MyWork';
+import MyFavorites from './MyFavorites';
 
 const HomeMain = ({ navigation }) => {
   const pushToNext = () => {
@@ -28,20 +22,13 @@ const HomeMain = ({ navigation }) => {
         My Work
       </Text>
       <View style={styles.buttonContainer}>
-        <TouchableButton icon={Icons.issue}>Issues</TouchableButton>
-        <TouchableButton icon={Icons.gitPullRequest}>Pull Requests</TouchableButton>
-        <TouchableButton icon={Icons.repository}>Repositories</TouchableButton>
-        <TouchableButton icon={Icons.organization}
-                         drawBottomBorder={false}>Organizations</TouchableButton>
+        <MyWork/>
       </View>
       <Text style={styles.subTitle}>
         Favorites
       </Text>
       <View style={styles.buttonContainer}>
-        <TouchableButton icon={Icons.issue}>Issues</TouchableButton>
-        <TouchableButton icon={Icons.gitPullRequest}>Pull Requests</TouchableButton>
-        <TouchableButton icon={Icons.repository}>Repositories</TouchableButton>
-        <TouchableButton icon={Icons.organization}>Organizations</TouchableButton>
+        <MyFavorites/>
       </View>
 
       <TouchableHighlight style={{ backgroundColor: 'white' }} onPress={pushToNext}>
@@ -75,7 +62,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   buttonContainer: {
-    backgroundColor: 'white',
+    backgroundColor: 'rgb(28, 28, 30)',
     borderRadius: 5,
     overflow: 'hidden',
   },

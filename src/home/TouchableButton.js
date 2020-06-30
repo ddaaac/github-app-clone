@@ -1,34 +1,35 @@
 import React from 'react';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, Text, TouchableHighlight, View } from 'react-native';
 
 import Icons from '../util/Icons';
 
 const TouchableButton = ({ icon, children, drawBottomBorder = true }) => (
-  <TouchableOpacity
-    style={styles.button}
-    activeOpacity={0.9}
+  <TouchableHighlight
+    underlayColor='rgb(58,58,60)'
+    onPress={() => {}}
   >
-    <View style={styles.iconContainer}>
-      <View style={styles.icon}>
-        {icon}
+    <View style={styles.button}>
+      <View style={styles.iconContainer}>
+        <View style={styles.icon}>
+          {icon}
+        </View>
+      </View>
+      <View style={drawBottomBorder ? styles.contentContainer : styles.lastContentContainer}>
+        <Text style={styles.content}>
+          {children}
+        </Text>
+      </View>
+      <View style={styles.arrowForward}>
+        {Icons.arrowForward}
       </View>
     </View>
-    <View style={drawBottomBorder ? styles.contentContainer : styles.lastContentContainer}>
-      <Text style={styles.content}>
-        {children}
-      </Text>
-    </View>
-    <View style={styles.arrowForward}>
-      {Icons.arrowForward}
-    </View>
-  </TouchableOpacity>
+  </TouchableHighlight>
 );
 
 export default TouchableButton;
 
 const styles = StyleSheet.create({
   button: {
-    backgroundColor: 'rgb(28, 28, 30)',
     height: 55,
     flexDirection: 'row',
     alignItems: 'center',
