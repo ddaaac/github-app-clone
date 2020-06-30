@@ -4,6 +4,7 @@ import { ScrollView, StyleSheet, Text, TouchableHighlight, View } from 'react-na
 import RefreshingIndicator from '../util/RefreshingIndicator';
 import MyWork from './MyWork';
 import MyFavorites from './MyFavorites';
+import Message from './Message';
 
 const HomeMain = ({ navigation }) => {
   const pushToNext = () => {
@@ -18,17 +19,33 @@ const HomeMain = ({ navigation }) => {
       <Text style={styles.title}>
         Home
       </Text>
+
       <Text style={styles.subTitle}>
         My Work
       </Text>
       <View style={styles.buttonContainer}>
         <MyWork/>
       </View>
-      <Text style={styles.subTitle}>
-        Favorites
-      </Text>
+
+      <View style={styles.subTitleSpace}>
+        <Text style={styles.subTitle}>
+          Favorites
+        </Text>
+        <Text style={StyleSheet.compose(styles.subTitle, styles.subTitleEdit)}>
+          Edit
+        </Text>
+      </View>
       <View style={styles.buttonContainer}>
         <MyFavorites/>
+      </View>
+
+      <Text style={styles.subTitle}>
+        Recent
+      </Text>
+      <View style={styles.buttonContainer}>
+        <Message>
+          Issues and Pull Requests that you've interacted with recently will appear here.
+        </Message>
       </View>
 
       <TouchableHighlight style={{ backgroundColor: 'white' }} onPress={pushToNext}>
@@ -44,10 +61,6 @@ const styles = StyleSheet.create({
   scrollView: {
     marginHorizontal: 15,
   },
-  text: {
-    fontSize: 10,
-    color: 'white',
-  },
   title: {
     color: 'white',
     fontWeight: 'bold',
@@ -60,6 +73,15 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     marginTop: 40,
     marginBottom: 10,
+  },
+  subTitleEdit: {
+    color: 'rgb(10,132,255)',
+    fontSize: 15,
+    fontWeight: '400',
+  },
+  subTitleSpace: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
   buttonContainer: {
     backgroundColor: 'rgb(28, 28, 30)',
