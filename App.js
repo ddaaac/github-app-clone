@@ -1,24 +1,17 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet } from 'react-native';
-import { NavigationContainer, DarkTheme } from '@react-navigation/native';
+import { DarkTheme, NavigationContainer } from '@react-navigation/native';
+import { RecoilRoot } from 'recoil';
 
 import Main from './src/Main';
 
 const App = () => (
-  <NavigationContainer theme={DarkTheme}>
-    <Main/>
-    <StatusBar style="auto"/>
-  </NavigationContainer>
+  <RecoilRoot>
+    <NavigationContainer theme={DarkTheme}>
+      <Main/>
+      <StatusBar style="auto"/>
+    </NavigationContainer>
+  </RecoilRoot>
 );
 
 export default App;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

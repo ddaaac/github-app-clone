@@ -1,14 +1,35 @@
 import React from 'react';
-import { Image, StyleSheet, TouchableOpacity } from 'react-native';
+import { ActivityIndicator, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import { useRecoilValueLoadable } from 'recoil';
 
-const ProfileImage = () => (
-  <TouchableOpacity style={styles.imgButton}>
-    <Image
-      style={styles.imgContainer}
-      source={{ uri: 'https://2.bp.blogspot.com/-dOmo4hFIwsA/W7h-5oaz57I/AAAAAAAAlJw/wggMaKtAAZslpQVxUoYffutDkeIeu4M2wCLcBGAs/s1600/1.gif' }}
-    />
-  </TouchableOpacity>
-);
+import { getUserInfo } from '../../state/User';
+
+const ProfileImage = () => {
+  const userInfoLoadable = useRecoilValueLoadable(getUserInfo);
+
+  const profile = () => {
+    switch (userInfoLoadable.state) {
+      case 'hasValue':
+        return (
+          <Image style={styles.imgContainer}
+                 source={{ uri: userInfoLoadable.contents.avatar_url }}/>
+        );
+      case 'loading':
+        return <ActivityIndicator/> ;
+      case 'hasError':
+        return (
+          <Image style={styles.imgContainer}
+                 source={require('../../../assets/github-icon.png')}/>
+        );
+    }
+  };
+
+  return (
+    <TouchableOpacity style={styles.imgButton}>
+      {profile()}
+    </TouchableOpacity>
+  )
+};
 
 export default ProfileImage;
 

@@ -1,13 +1,17 @@
 import React from 'react';
 import { ScrollView, StyleSheet, Text, TouchableHighlight, View } from 'react-native';
+import { useRecoilStateLoadable } from 'recoil';
 
 import RefreshingIndicator from '../util/RefreshingIndicator';
 import MyWork from './MyWork';
 import MyFavorites from './MyFavorites';
 import Message from './Message';
 import COLOR from '../util/Color';
+import { getUserInfo } from '../state/User';
 
 const HomeMain = ({ navigation }) => {
+  const [userInfoLoadable, reFetchUserInfo] = useRecoilStateLoadable(getUserInfo);
+
   const pushToNext = () => {
     navigation.push('HomeMain');
   };
@@ -15,7 +19,11 @@ const HomeMain = ({ navigation }) => {
   return (
     <ScrollView
       style={styles.scrollView}
-      refreshControl={<RefreshingIndicator/>}
+      refreshControl={
+        <RefreshingIndicator
+          getUserInfo={reFetchUserInfo}
+          loading={userInfoLoadable === 'loading'}
+        />}
     >
       <Text style={styles.title}>
         Home

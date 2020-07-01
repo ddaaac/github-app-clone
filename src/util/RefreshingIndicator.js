@@ -1,16 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { RefreshControl } from 'react-native';
 
-const RefreshingIndicator = () => {
-  const [refresh, setRefresh] = useState(false);
-
-  const onRefresh = () => {
-    setRefresh(true);
-    setTimeout(() => setRefresh(false), 1000);
-  };
-
+const RefreshingIndicator = ({ getUserInfo, loading }) => {
   return (
-    <RefreshControl tintColor='#C0C0C0' refreshing={refresh} onRefresh={onRefresh}/>
+    <RefreshControl tintColor='#C0C0C0' refreshing={loading} onRefresh={getUserInfo}/>
   );
 };
 
