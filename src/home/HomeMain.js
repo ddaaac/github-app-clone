@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollView, StyleSheet, Text, TouchableHighlight, View } from 'react-native';
+import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import { useRecoilStateLoadable } from 'recoil';
 
 import RefreshingIndicator from '../util/RefreshingIndicator';
@@ -8,13 +8,10 @@ import MyFavorites from './MyFavorites';
 import Message from './Message';
 import COLOR from '../util/Color';
 import { getUserInfo } from '../state/User';
+import Title from '../Title';
 
-const HomeMain = ({ navigation }) => {
+const HomeMain = () => {
   const [userInfoLoadable, reFetchUserInfo] = useRecoilStateLoadable(getUserInfo);
-
-  const pushToNext = () => {
-    navigation.push('HomeMain');
-  };
 
   return (
     <ScrollView
@@ -25,9 +22,7 @@ const HomeMain = ({ navigation }) => {
           loading={userInfoLoadable === 'loading'}
         />}
     >
-      <Text style={styles.title}>
-        Home
-      </Text>
+      <Title>Home</Title>
 
       <Text style={styles.subTitle}>
         My Work
@@ -56,10 +51,6 @@ const HomeMain = ({ navigation }) => {
           Issues and Pull Requests that you've interacted with recently will appear here.
         </Message>
       </View>
-
-      <TouchableHighlight style={{ backgroundColor: 'white' }} onPress={pushToNext}>
-        <Text>다음 페이지로 push</Text>
-      </TouchableHighlight>
     </ScrollView>
   );
 };

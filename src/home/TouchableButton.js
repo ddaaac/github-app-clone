@@ -4,10 +4,10 @@ import { StyleSheet, Text, TouchableHighlight, View } from 'react-native';
 import Icons from '../util/Icons';
 import COLOR from '../util/Color';
 
-const TouchableButton = ({ icon, children, drawBottomBorder = true }) => (
+const TouchableButton = ({ icon, children, drawBottomBorder = true, onPress = () => {} }) => (
   <TouchableHighlight
     underlayColor={COLOR.darkGray4}
-    onPress={() => {}}
+    onPress={onPress}
   >
     <View style={styles.button}>
       <View style={styles.iconContainer}>

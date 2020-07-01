@@ -4,6 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import HomeMain from './HomeMain';
 import ProfileImage from './header/ProfileImage';
 import CreateIssueButton from './header/CreateIssueButton';
+import Repositories from './Repositories';
 
 const Stack = createStackNavigator();
 
@@ -18,6 +19,10 @@ const Home = () => {
           headerLeft: () => <ProfileImage/>,
           headerRight: () => <CreateIssueButton/>,
         }}
+      />
+      <Stack.Screen
+        name='Repositories'
+        component={Repositories}
       />
     </Stack.Navigator>
   );

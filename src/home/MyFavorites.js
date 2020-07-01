@@ -1,8 +1,9 @@
 import React from 'react';
-import { Image, StyleSheet, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import TouchableButton from './TouchableButton';
 import Message from './Message';
 import MessageButton from './MessageButton';
+import ImageWithUri from '../util/ImageWithUri';
 
 const DEFAULT_FAVORITE_DATA = [
   {
@@ -23,7 +24,8 @@ const MyFavorites = () => {
   const favoriteData = DEFAULT_FAVORITE_DATA;
 
   const convertDataToButton = (favorite) => {
-    const icon = <Image style={styles.imageContainer} source={{ uri: favorite.imageUri }}/>;
+    const icon = <ImageWithUri uri={favorite.imageUri}/>;
+
     return (
       <TouchableButton
         key={favorite.repository}

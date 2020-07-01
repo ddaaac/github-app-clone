@@ -20,6 +20,7 @@ export const getUserInfo = selector({
       url: '/user',
       headers: { 'Authorization': AUTHORIZATION },
     });
+    console.log("User triggered!")
     return response.data;
   },
   set: ({ set }) => {
