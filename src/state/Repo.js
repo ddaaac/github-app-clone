@@ -25,6 +25,7 @@ export const getRepositories = selector({
     return response.data;
   },
   set: ({ set }) => {
+    console.log("repository setter!e")
     set(_repositoriesTrigger, v => v + 1);
   }
 });
